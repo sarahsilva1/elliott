@@ -2379,7 +2379,7 @@ hr {
   font-family: var(--font-stack-header);
   font-style: var(--font-style-header);
   font-weight: var(--font-weight-header);
-  font-size: calc(((var(--font-size-base) + 2) / (var(--font-size-base))) * 1em); }
+  font-size: calc(((var(--font-size-base) + 4) / (var(--font-size-base))) * 1em); }
   @media only screen and (max-width: 749px) {
     .list-view-item__title {
       font-size: calc(((var(--font-size-base) - 1) / (var(--font-size-base))) * 1em); } }
@@ -2932,9 +2932,15 @@ hr {
   position: absolute;
   top: 4px;
   left: 4px;
-  width: calc(100% - 8px); }
-  .no-js .product-featured-media {
-    position: relative; }
+  width: calc(100% - 8px); 
+  /* new below */
+  border: 5px solid transparent;
+  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+  border-image-slice: 1;
+}
+
+.no-js .product-featured-media {
+  position: relative; }
 
 .zoomImg {
   background-color: var(--color-body); }
@@ -3477,6 +3483,11 @@ hr {
 
 .cart__remove {
   margin-top: calc((8 / (var(--font-size-base))) * 1em); }
+
+p.cart__remove a {
+  color: var(--color-text);
+  font-size: .8em;
+}
 
 .cart__price {
   text-align: right;
@@ -6996,3 +7007,44 @@ hr {
 
 .store-availability-list__phone {
   margin-bottom: 0; }
+
+.gradient-box {
+  border: 5px solid transparent;
+  border-image: linear-gradient(to bottom right, #a166ab 0%, #5073b8 25%, #6fba82 50%, #fec837 75%, #fd1892 100%);
+  border-image-slice: 1;
+}
+
+.moving-gradient-border {
+  --borderWidth: 3px;
+  color: #A1D3F2;
+  background: #143642;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.moving-gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 5s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
